@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+ 
+ @mixin glassy($opacity1,$opacity2){
+    background: white;
+    background: linear-gradient(to right bottom, rgba(255,255,255,$opacity1), rgba(255,255,255,$opacity2));
+ }
+ 
+ @mixin btnBckgrnd($opacity1,$opacity2){
+    background: white;
+    background: linear-gradient(to right bottom, rgba(100,178,250,$opacity1), rgba(255,255,255,$opacity2));
+ }
+
+$fontMain: 'Roboto', sans-serif;
+$shadow:2px 2px white;
+
+ body{
+  
+  background: linear-gradient(to right top,#65dfc9,#6cdbeb);
+  margin:5% 20% 30% 30%;
+  text-align: center;
+  h2{
+      font-family: $fontMain;
+  }
+ }
+main{
+    min-height: 80vh;
+    min-height: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.glass{
+    @include glassy(0.3,0.7);
+    min-width: 80vh;
+    width: 60%;
+    border-radius: 2rem;
+
+}
+
+#form{
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+    width: 60%;
+
+    input{
+        @include glassy(0.2,0.9);
+        font-family: $fontMain;
+        border-radius: 2rem;
+        height: 32px;
+        width: 256px;
+        border: none;
+        text-align: center;
+        margin: 20px;
+    }
+
+    button{
+        width: 64px;
+        height: 32px;
+        border: none;
+        margin-top: 24px;
+        @include btnBckgrnd(0.3,0.7 );
+        cursor: pointer;
+        font-family: $fontMain;
+        border-radius: 2rem;
+        
+    }
+}
