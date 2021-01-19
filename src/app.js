@@ -1,41 +1,92 @@
 import style from "./css/index.scss"
 
 const minutes = document.getElementById('min');
-let seconds =document.getElementById('sec');
+const seconds =document.getElementById('sec');
 const btn = document.querySelector('button');
 
 minutes.defaultValue = 0;
 seconds.defaultValue = 0;
 
-let currentValue;
-let updatedValue;
+let currentSecValue = seconds.value;
+let updatedSecValue;
+let currentMinValue = minutes.value;
+let updatedMinValue;
+
+
 
 function counter(){
-    
+    // seconds.addEventListener('change', e => {
+    //     if(currentMinValue>minutes.getAttribute('min')){
+                
+    //         updatedMinValue = parseInt(currentMinValue)-1;
+    //         minutes.setAttribute('value', parseInt(currentMinValue)-1);
+    //         currentMinValue = updatedMinValue;
+    //         updatedSecValue = 59; 
+    // })
+
     if( seconds.value>0){
-        currentValue = sec.value;
-        updatedValue = currentValue -1;
+       
+        currentSecValue = seconds.value;
+        updatedSecValue = currentSecValue -1;
         seconds.disabled = true;
 
-       currentValue = updatedValue;
-       seconds.value = currentValue;
-        setTimeout(counter,1000)
+        currentSecValue = updatedSecValue;
+        seconds.value = currentSecValue;
+        
+        
+
+
+
+       setTimeout(counter,1000)
     }
     else {
         alert('The End!')
+        seconds.disabled = false;
     }
+};
 
 
 
-// setTimeout(counter(),1000);
-}
-
-    minutes.value = 0;
-    seconds.value = 0;
+   seconds.addEventListener('change', e => {
 
 
+       if(e.target.value === seconds.getAttribute('max')){
+    
+        
+        updatedMinValue = parseInt(currentMinValue)+1
+        minutes.setAttribute('value', parseInt(currentMinValue)+1);
+        currentMinValue = updatedMinValue;
+        e.target.value = 0;   
+    }
+    
+        // if(e.target.value === seconds.getAttribute('min')){
 
-btn.addEventListener('click',(event)=> {
+        //     if(currentMinValue>minutes.getAttribute('min')){
+                
+        //         updatedMinValue = parseInt(currentMinValue)-1;
+        //         minutes.setAttribute('value', parseInt(currentMinValue)-1);
+        //         currentMinValue = updatedMinValue;
+        //         e.target.value = 59;
+             
+        //     }
+        // }
+        
+        
+        
+    
+   });
+
+   minutes.addEventListener('change', e => {
+        updatedMinValue = e.target.value;
+        currentMinValue = updatedMinValue;
+
+   });
+
+    
+
+
+
+btn.addEventListener('click',event=> {
     event.preventDefault();
     counter();
 

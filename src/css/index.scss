@@ -12,15 +12,21 @@
 
 $fontMain: 'Roboto', sans-serif;
 $shadow:2px 2px white;
+$hovercolor: lightblue;
 
  body{
   
   background: linear-gradient(to right top,#65dfc9,#6cdbeb);
   margin:5% 20% 30% 30%;
   text-align: center;
-  h2{
+  h1{
       font-family: $fontMain;
+    //   position: absolute;
   }
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  
  }
 main{
     min-height: 80vh;
@@ -34,8 +40,10 @@ main{
 .glass{
     @include glassy(0.3,0.7);
     min-width: 80vh;
-    width: 60%;
+    // position: absolute;
+    // margin-top: 50px;
     border-radius: 2rem;
+    
 
 }
 
@@ -54,6 +62,10 @@ main{
         border: none;
         text-align: center;
         margin: 20px;
+        &:hover{
+            background-color: $hovercolor;
+            cursor: pointer;
+        }   
     }
 
     button{
@@ -65,6 +77,31 @@ main{
         cursor: pointer;
         font-family: $fontMain;
         border-radius: 2rem;
+        &:hover{
+            background-color:$hovercolor ;
+        }
         
     }
 }
+
+.circle {
+
+    border-radius: 50%;
+    @include glassy(0.4,0.9);
+    width: 150px;
+    height: 150px;
+    position: relative;
+    // background-color: lightcoral;
+    border: none;
+
+}
+#circle1{
+margin-left: 75%;
+margin-top: 80px;
+
+}
+#circle2{
+    // margin-left: 35%;
+    // margin-top: 880px;
+    
+    }
