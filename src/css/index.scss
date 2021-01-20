@@ -1,107 +1,134 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
  
- @mixin glassy($opacity1,$opacity2){
-    background: white;
-    background: linear-gradient(to right bottom, rgba(255,255,255,$opacity1), rgba(255,255,255,$opacity2));
- }
- 
- @mixin btnBckgrnd($opacity1,$opacity2){
-    background: white;
-    background: linear-gradient(to right bottom, rgba(100,178,250,$opacity1), rgba(255,255,255,$opacity2));
- }
+@mixin backgroundColor() {
+    background: linear-gradient(to right top,#594E69,#9386A5);
+}
 
-$fontMain:'Poppins', sans-serif;
-$shadow:2px 2px white;
-$hovercolor: lightblue;
+$h1font:'Montserrat', sans-serif;
+$actionFont: 'Ubuntu', sans-serif;
+$fontMain:'Raleway', sans-serif;
+$fontColor: #E5E2E8;
+$hovercolor: rgb(181, 163, 211);
 
  body{
   
-  background: linear-gradient(to right top,#65dfc9,#6cdbeb);
-  margin:5% 20% 30% 30%;
-  text-align: center;
-  h1{
-      font-family: $fontMain;
-    //   position: absolute;
-  }
-  display: flex;
-  justify-content: center;
+  @include backgroundColor;
+  height: 100vh;
+   display: flex;
+   align-items: center;
   flex-direction: column;
+
+  h1{
+      font-family: $h1font;
+        color: $fontColor;
+        margin-top: 100px;
+        margin-bottom: 50px;
+  }
+ 
   
  }
 main{
-    min-height: 80vh;
-    min-height: 30vw;
+    box-shadow: 0px 4px 46px rgba(0, 0, 0, 0.46);
+    height: 24vw;
+    width: 880px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 14px;
+    background: linear-gradient(to right top,#E0DEE3,#E5E2E8);
   
-}
-
-.glass{
-    @include glassy(0.3,0.7);
-    min-width: 80vh;
-    // position: absolute;
-    // margin-top: 50px;
-    border-radius: 2rem;
     
-
-}
-
-#form{
-    display: flex;
-    flex-direction: row;
-    margin: 15px;
-    width: 60%;
-
-    input{
-        @include glassy(0.2,0.9);
-        font-family: $fontMain;
-        border-radius: 2rem;
-        height: 32px;
-        width: 256px;
-        border: none;
-        text-align: center;
-        margin: 20px;
-        &:hover{
-            background-color: $hovercolor;
-            cursor: pointer;
-        }   
-    }
-
     button{
-        width: 64px;
-        height: 32px;
+ 
         border: none;
-        margin-top: 24px;
-        @include btnBckgrnd(0.3,0.7 );
+        background: none;
+        font-style: $actionFont;
+        font-size: 18px;
+        font-weight: bold;
         cursor: pointer;
         font-family: $fontMain;
         border-radius: 2rem;
         &:hover{
-            background-color:$hovercolor ;
+            color:$hovercolor ;
+            cursor: pointer;
         }
         
     }
+  
 }
 
-.circle {
 
-    border-radius: 50%;
-    @include glassy(0.4,0.9);
-    width: 150px;
-    height: 150px;
-    position: relative;
-    // background-color: lightcoral;
-    border: none;
-
-}
-#circle1{
-margin-left: 75%;
-margin-top: 80px;
-
-}
-#circle2{
-    // margin-left: 35%;
-    // margin-top: 880px;
+#form{
+    box-shadow: 0px 4px 46px rgba(0, 0, 0, 0.46);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 20vh;
+    width: 80%;
+    background: linear-gradient(to right top,#594E69,#9386A5);
     
+    
+
+    input{
+      
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.26);
+        background: none;
+        font-family: $h1font;
+        height: 128px;
+        width: 256px;
+        border: none;
+        text-align: center;
+        margin: 20px;
+        font-size: 126px;
+        color: $fontColor;
+       -moz-appearance: textfield;
+        &:hover{
+            cursor: pointer;
+            
+        }   
     }
+   
+    p{
+        font-size: 56px;
+        font-family:$h1font ;
+        display: flex;
+        justify-content: center;
+        color: $fontColor;
+    }
+
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+
+   appearance: none; 
+   margin: 0;
+}
+
+.arrowContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 45px;
+    
+
+    :hover{
+        
+        cursor: pointer;
+    }
+    
+  .up{
+    transform: rotate(0deg);
+    height:26px;
+  }
+  .down{
+    transform: rotate(-180deg);
+    height:26px;  
+  }
+}
+
+
+

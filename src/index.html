@@ -2,12 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="shortcut icon" href="/src/assets/wall-clock.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <title>Timer</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <!-- <script src="./src/app.js" defer></script> -->
+    <link rel='shortcut icon' type='image/x-icon' href='./assets/favicon.ico'/>
+
 
 </head>
 <body>
@@ -17,16 +15,34 @@
        
         <main>
             
+                 <button >Start</button><br>
+                 
+            
+            
+             
         <form id="form">
             
-            <input type="number" id="min" value='' min="0" max="60">
-            <input type="number" id="sec" value='' min="0" max="60"><br>
-            <button >Start!</button>
+            <input type="number" id="min" value='' min="0" max="60" oninput="this.value = Math.abs(this.value)"> 
+            <div class="arrowContainer">
+                <img src="./assets/Traingle.svg" alt="up" class="up" id="upMin">
+                <img src="./assets/Traingle.svg" alt="down"  class="down" id="downMin">
+            </div>
+
+            
+            <!-- <p>:</p> -->
+            <input type="number" id="sec" value='' min="0" max="60" oninput="this.value = Math.abs(this.value)"><br>
+            <div class="arrowContainer">
+                <img src="./assets/Traingle.svg" alt="up" class="up" id="upSec">
+                <img src="./assets/Traingle.svg" alt="down"  class="down" id="downSec">   
+            </div>
+
+           
         </form>
         
         </main>
        
     </section>
      <!-- <div class="circle" id="circle2"></div> -->
+     
 </body>
 </html>
