@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
  
  @mixin glassy($opacity1,$opacity2){
     background: white;
@@ -10,7 +10,7 @@
     background: linear-gradient(to right bottom, rgba(100,178,250,$opacity1), rgba(255,255,255,$opacity2));
  }
 
-$fontMain: 'Roboto', sans-serif;
+$fontMain:'Poppins', sans-serif;
 $shadow:2px 2px white;
 $hovercolor: lightblue;
 

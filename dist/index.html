@@ -3,23 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/src/assets/wall-clock.png" type="image/x-icon">
     <title>Timer</title>
     <!-- <link rel="stylesheet" href="style.css"> -->
     <!-- <script src="./src/app.js" defer></script> -->
 
 </head>
 <body>
-    <h2>Timer</h2>
+    <h1>Timer</h1>
+    <!-- <div class="circle" id="circle1"></div> -->
     <section class="glass">
+       
         <main>
+            
         <form id="form">
-            <input type="number" id="min">
-            <input type="number" id="sec"><br>
+            
+            <input type="number" id="min" value='' min="0" max="60">
+            <input type="number" id="sec" value='' min="0" max="60"><br>
             <button >Start!</button>
         </form>
-    
+        
         </main>
-
+       
     </section>
+     <!-- <div class="circle" id="circle2"></div> -->
 <script type="text/javascript" src="bundle.js"></script></body>
 </html>
