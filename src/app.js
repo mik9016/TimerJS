@@ -14,7 +14,6 @@ const upArrows = document.getElementsByClassName('up');
 const downArrows = document.getElementsByClassName('down');
 
 
-
 //FUNCTIONS
 function counter(){
        
@@ -74,35 +73,14 @@ let state = {
     resetbtnclicked: false,
     counterWorking: false
 };
-    //default values
+    //SETTING DEFAULT VALUES 
 
 state.currentSecValue = seconds.value;
 state.currentMinValue = minutes.value;
 minutes.value = 0;
 seconds.value = 0;
 
-
-    //setting input fields handling
-// inputs.forEach(input => {input.addEventListener('change', e => {
-    
-   
-//     if(e.target.id === 'sec'){
-//         state.currentSecValue = +e.target.value;
-//         if (state.currentSecValue === 60) {
-//             state.currentMinValue = +state.currentMinValue +1;
-//             minutes.value = state.currentMinValue;
-//             seconds.value = 0;
-//         }else if(state.currentMinValue>0 && state.currentSecValue === 0){
-//             state.currentMinValue = +state.currentMinValue -1;
-//             minutes.value = state.currentMinValue;
-//             seconds.value = 59;
-//         }
-//     }else if(e.target.id === 'min'){
-//         state.currentMinValue = +e.target.value;
-//     }
-    
-// })});
-
+    //HANDLING SETTING VALUES BY ARROWS
     arrows.forEach(arrow => {arrow.addEventListener('click', e => {
      
    
@@ -118,7 +96,6 @@ seconds.value = 0;
             state.currentMinValue = +minutes.value +1;
             minutes.value = state.currentMinValue;
             state.currentMinValue = minutes.value;
-            // updateUp(); 
             
            
         }else if(e.target.id === 'downSec'){
@@ -136,9 +113,22 @@ seconds.value = 0;
             minutes.value = state.currentMinValue;
             state.currentMinValue = minutes.value;
             minutes.value = Math.abs(minutes.value);
-        }
+        };
         
-    })
+    });
+    });
+
+    //HANDLING MINUS VALUES ON INPUT
+    inputs.forEach(input => {input.addEventListener('input', event => {
+       event.target.value = Math.abs(event.target.value);
+
+        if(event.target.value > 59){
+            state.currentSecValue = 59;
+            event.target.value = Math.abs(state.currentSecValue);
+            state.currentMinValue = 59;
+        };
+    });
+
     });
 
 

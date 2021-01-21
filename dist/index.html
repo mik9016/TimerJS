@@ -14,12 +14,33 @@
     <section class="glass">
        
         <main>
+            <div class="btns">
+                 <button >Start</button><br>
+                 <button id="reset">Reset</button><br>
+            </div>
+
+                 
             
+            
+             
         <form id="form">
             
-            <input type="number" id="min" value='' min="0" max="60">
-            <input type="number" id="sec" value='' min="0" max="60"><br>
-            <button >Start!</button>
+            <input type="number" id="min" value='' min="0" max="60" oninput="this.value = Math.abs(this.value)"> 
+            <div class="arrowContainer">
+                <img src="Traingle.svg" alt="up" class="up" id="upMin">
+                <img src="Traingle.svg" alt="down"  class="down" id="downMin">
+            </div>
+
+
+            <!-- <p>:</p> -->
+            <input type="number" id="sec" value='' min="0" max="60" oninput="this.value = Math.abs(this.value)" ><br>
+            <div class="arrowContainer">
+                <img src="Traingle.svg" alt="up" class="up" id="upSec">
+                <img src="Traingle.svg" alt="down"  class="down" id="downSec">   
+            </div>
+
+
+           
         </form>
         
         </main>
