@@ -9,11 +9,18 @@ const seconds =document.getElementById('sec');
 const startBtn = document.querySelector('button');
 const inputs = document.querySelectorAll('input');
 const arrows = document.querySelectorAll('img');
+const resetBtn = document.getElementById('reset');
+const upArrows = document.getElementsByClassName('up');
+const downArrows = document.getElementsByClassName('down');
+
+
 
 //FUNCTIONS
 function counter(){
-        console.log('counter' + state.currentMinValue)
-    if(state.currentMinValue>0 || state.currentSecValue>0){
+       
+        state.currentSecValue = seconds.value;
+        state.currentMinValue = minutes.value;
+    if(state.currentMinValue > 0 || state.currentSecValue > 0){
   
         state.currentSecValue = +seconds.value -1;
         seconds.value = state.currentSecValue;
@@ -27,10 +34,17 @@ function counter(){
             
         }
         
-       setTimeout(counter,1000)
+        setTimeout(counter,1000);
     }
     else {
-        alert('The End!')
+        if(state.resetbtnclicked === true){
+            state.resetbtnclicked = false;
+            
+        }else{
+            alert('The End!');
+           
+        }
+        
     }
 };
 
@@ -56,14 +70,16 @@ function updateUp(){
 
 let state = {
     currentMinValue: '',
-    currentSecValue: ''
+    currentSecValue: '',
+    resetbtnclicked: false,
+    counterWorking: false
 };
     //default values
 
 state.currentSecValue = seconds.value;
 state.currentMinValue = minutes.value;
 minutes.value = 0;
-seconds.value = 58;
+seconds.value = 0;
 
 
     //setting input fields handling
@@ -87,41 +103,46 @@ seconds.value = 58;
     
 // })});
 
-arrows.forEach(arrow => {arrow.addEventListener('click', e => {
-
+    arrows.forEach(arrow => {arrow.addEventListener('click', e => {
+     
    
-    if(e.target.id === 'upSec'){
-        
-        state.currentSecValue = +seconds.value +1;
-        seconds.value = state.currentSecValue;
-        state.currentSecValue = seconds.value;
-        console.log(state.currentSecValue);
-        updateUp();
-
-    }else if(e.target.id === 'upMin'){
-        
-        state.currentMinValue = +minutes.value +1;
-        minutes.value = state.currentMinValue;
-        state.currentMinValue = minutes.value;
-        // updateUp(); 
-        
-       
-    }else if(e.target.id === 'downSec'){
-        console.log(seconds.value)
-        seconds.value = Math.abs(seconds.value);
-        state.currentSecValue = +seconds.value -1;
-        seconds.value = state.currentSecValue;
-        state.currentSecValue = seconds.value;
-       updateDown();
-    }else if(e.target.id === 'downMin'){
-        minutes.value = Math.abs(minutes.value);
-        state.currentMinValue = +minutes.value -1;
-        minutes.value = state.currentMinValue;
-        state.currentMinValue = minutes.value;
-        // updateDown();
-    }
+        if(e.target.id === 'upSec'){
+            
+            state.currentSecValue = +seconds.value +1;
+            seconds.value = state.currentSecValue;
+            state.currentSecValue = seconds.value;
+            updateUp();
     
-})});
+        }else if(e.target.id === 'upMin'){
+            
+            state.currentMinValue = +minutes.value +1;
+            minutes.value = state.currentMinValue;
+            state.currentMinValue = minutes.value;
+            // updateUp(); 
+            
+           
+        }else if(e.target.id === 'downSec'){
+    
+                state.currentSecValue = seconds.value;
+                seconds.value = state.currentSecValue;
+                state.currentSecValue = +seconds.value -1;
+                seconds.value = state.currentSecValue;
+                state.currentSecValue = seconds.value;
+                seconds.value = Math.abs(seconds.value);
+                updateDown();     
+        }else if(e.target.id === 'downMin'){
+            
+            state.currentMinValue = +minutes.value -1;
+            minutes.value = state.currentMinValue;
+            state.currentMinValue = minutes.value;
+            minutes.value = Math.abs(minutes.value);
+        }
+        
+    })
+    });
+
+
+
 
 
 
@@ -131,10 +152,19 @@ arrows.forEach(arrow => {arrow.addEventListener('click', e => {
 startBtn.addEventListener('click',event=> {
     event.preventDefault();
     counter();
+   
     
 
 });
 
+resetBtn.addEventListener('click',event=> {
+    event.preventDefault();
+    minutes.value = 0;
+    seconds.value = 0;
+    state.currentMinValue = 0;
+    state.currentSecValue = 0;
+    state.resetbtnclicked = true;
+});
 
 
 

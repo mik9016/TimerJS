@@ -6,6 +6,13 @@
     background: linear-gradient(to right top,#594E69,#9386A5);
 }
 
+@keyframes timer{
+   from {transform: translateY(25px)}
+   to {transform: translateY(0px);}
+}
+
+
+
 $h1font:'Montserrat', sans-serif;
 $actionFont: 'Ubuntu', sans-serif;
 $fontMain:'Raleway', sans-serif;
@@ -39,6 +46,15 @@ main{
     align-items: center;
     gap: 14px;
     background: linear-gradient(to right top,#E0DEE3,#E5E2E8);
+    
+    .btns{
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        margin-bottom: 16px;
+        align-items: center;
+        justify-content: center;
+    }
   
     
     button{
@@ -51,6 +67,7 @@ main{
         cursor: pointer;
         font-family: $fontMain;
         border-radius: 2rem;
+        outline: none;
         &:hover{
             color:$hovercolor ;
             cursor: pointer;
@@ -69,7 +86,7 @@ main{
     height: 20vh;
     width: 80%;
     background: linear-gradient(to right top,#594E69,#9386A5);
-    
+  
     
 
     input{
@@ -85,19 +102,14 @@ main{
         font-size: 126px;
         color: $fontColor;
        -moz-appearance: textfield;
+        // animation: timer 0.5s ease-in normal 0.45s;
         &:hover{
             cursor: pointer;
             
-        }   
+        } 
+  
     }
    
-    p{
-        font-size: 56px;
-        font-family:$h1font ;
-        display: flex;
-        justify-content: center;
-        color: $fontColor;
-    }
 
 }
 input::-webkit-outer-spin-button,
@@ -113,7 +125,7 @@ input::-webkit-inner-spin-button {
     justify-content: center;
     flex-direction: column;
     gap: 45px;
-    
+   
 
     :hover{
         
@@ -123,12 +135,15 @@ input::-webkit-inner-spin-button {
   .up{
     transform: rotate(0deg);
     height:26px;
+  
   }
   .down{
     transform: rotate(-180deg);
     height:26px;  
+   
   }
 }
+
 
 
 
