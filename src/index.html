@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timer</title>
-    <link rel='shortcut icon' type='image/x-icon' href='./assets/favicon.ico'/>
-
-
-</head>
-<body>
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon.ico" />
+  </head>
+  <body>
     <h1>Timer</h1>
     <!-- <div class="circle" id="circle1"></div> -->
     <section class="glass">
-       
-        <main>
-            <div class="btns">
-                 <button >Start</button><br>
-                 <button id="reset">Reset</button><br>
-            </div>
+      <main>
+        <div class="btns">
+          <button>Start</button><br />
+          <button id="reset">Reset</button><br />
+        </div>
 
-                 
-            
-            
-             
         <form id="form">
-            
-            <input type="number" id="min" value='' min="0" max="60"> 
-            <div class="arrowContainer">
-                <img src="./assets/Traingle.svg" alt="up" class="up" id="upMin">
-                <img src="./assets/Traingle.svg" alt="down"  class="down" id="downMin">
-            </div>
+          <input type="number" id="min" value="" min="0" max="60" />
+          <div class="arrowContainer">
+            <img src="./assets/Traingle.svg" alt="up" class="up" id="upMin" />
+            <img
+              src="./assets/Traingle.svg"
+              alt="down"
+              class="down"
+              id="downMin"
+            />
+          </div>
 
-
-            <!-- <p>:</p> -->
-            <input type="number" id="sec" value='' min="0" max="60"  ><br>
-            <div class="arrowContainer">
-                <img src="./assets/Traingle.svg" alt="up" class="up" id="upSec">
-                <img src="./assets/Traingle.svg" alt="down"  class="down" id="downSec">   
-            </div>
-
-
-           
+          <!-- <p>:</p> -->
+          <input type="number" id="sec" value="" min="0" max="60" /><br />
+          <div class="arrowContainer">
+            <img src="./assets/Traingle.svg" alt="up" class="up" id="upSec" />
+            <img
+              src="./assets/Traingle.svg"
+              alt="down"
+              class="down"
+              id="downSec"
+            />
+          </div>
         </form>
-        
-        </main>
-       
+      </main>
     </section>
-     <!-- <div class="circle" id="circle2"></div> oninput="this.value = Math.abs(this.value)" -->
-     
-</body>
+    <!-- <div class="circle" id="circle2"></div> oninput="this.value = Math.abs(this.value)" -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.2.7/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+  </body>
 </html>
